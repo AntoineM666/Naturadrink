@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TesteNd{% endblock %}
+
+{% block body %}
+
+
+
+   
+<div class="row">
+    <img  src="{{asset('images/produits/')}}{{product.filename}}" >
+   
+    
+    <div class="container">
+ <div class="card m-5 ">
+                      
+                        <div class="card-body">
+                            <h3 class="card-title" style="text-align:center;">{{ product.title }}</h3>
+                            <p class="card-text ">{{ product.content }}</p>
+                            <p class="card-text "style="text-align: center;"><strong>Prix:</strong> {{ product.price }}€</p>
+                            <div class="text-center">
+                       
+                            </div>
+                        </div>
+                    </div>
+</div>
+</div>
+
+{% endblock %}

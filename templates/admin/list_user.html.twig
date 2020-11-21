@@ -3,18 +3,20 @@
 {% block body %}
 <div class="container">
     <h1> Liste des utilisateurs</h1>
-        <table classe="table">
+        <table class="table">
             <thead>
-                <th>id</th>
-                <th>email</th>
-                <th>roles</th>
-                <th>verif</th>
-                <th>action</th>
+        
+                <th scope="col">id</th>
+                <th scope="col">email</th>
+                <th scope="col">roles</th>
+                <th scope="col">verif</th>
+                <th scope="col">action</th>
+            
             </thead>
             <tbody>
             {% for users in user %}
                 <tr>
-                    <td>{{ users.id }}</td>
+                    <td >{{ users.id }}</td>
                     <td>{{ users.email }}</td>
                     <td>{% for roles in users.roles %}
                             {% if roles == "ROLE_USER" %}

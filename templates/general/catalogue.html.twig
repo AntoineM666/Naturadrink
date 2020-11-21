@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TesteNd{% endblock %}
+
+{% block body %}
+
+
+<div class="row " >
+
+{% for product in products %}
+       
+                    <div class="card m-5 " style="width: 22rem;">
+                        {% if product.filename %}
+                       <img  src="{{ vich_uploader_asset(product,'imageFile') | imagine_filter('thumb') }}" style="width:auto; height:350px;">
+                        {% endif %}
+                        <div class="card-body">
+                            <h3 class="card-title" style="text-align:center;">{{ product.title }}</h3>
+                            <p class="card-text "style="text-align: center;"></p>
+                            <p class="card-text "style="text-align: center;"><strong>Prix:</strong> {{ product.price }}€</p>
+                            <div class="text-center">
+                            <a  href="{{path ( '_showcata' ,{'id': product.id} ) }}" class="btn btn-primary " >voire plus</a>
+                            </div>
+                        </div>
+                    </div>
+{% endfor %}
+</div>
+{% endblock %}
