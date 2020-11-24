@@ -5,11 +5,12 @@
 {% block body %}
 
 
-<div class="row ">
+<div class="row " >
 
 {% for product in products %}
+    {% if product.category == 'cafe' %}
        
-                    <div class="card m-5 " style="width: 22rem;  ">
+                    <div class="card m-5 " style="width: 22rem;box-shadow: 8px 8px 12px #aaa;">
                         {% if product.filename %}
                        <img  src="{{ vich_uploader_asset(product,'imageFile') | imagine_filter('thumb') }}" style="width:auto; height:350px;">
                         {% endif %}
@@ -18,10 +19,11 @@
                             <p class="card-text "style="text-align: center;"></p>
                             <p class="card-text "style="text-align: center;"><strong>Prix:</strong> {{ product.price }}€</p>
                             <div class="text-center">
-                            <a  href="{{path ( '_showcata' ,{'id': product.id} ) }}" class="btn btn-primary " >voire plus</a>
+                            <a  href="{{path ( '_showcata' ,{'id': product.id} ) }}" class="btn btn-primary " >voir plus</a>
                             </div>
                         </div>
                     </div>
+    {% endif %}               
 {% endfor %}
 </div>
 {% endblock %}

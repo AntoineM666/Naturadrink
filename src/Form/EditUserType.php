@@ -27,6 +27,7 @@ class EditUserType extends AbstractType
                 'class'=> 'form-control'
             ]
             ])
+            
             ->add('roles',ChoiceType::class,[
                 'choices'=>[
                     'utilisateur'=>'ROLE_USER',

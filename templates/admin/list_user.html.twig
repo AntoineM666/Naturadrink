@@ -29,7 +29,9 @@
                         {% endfor %}
                     </td>
                     <td></td>
-                    <td><a href="{{path('edit_user', {'id': users.id}) }}" class="btn btn-warning">modifier</a></td>
+                    <td><a href="{{path('edit_user', {'id': users.id}) }}" class="btn btn-warning">modifier</a> {{ include('admin/deleteuser.html.twig') }}
+                    </td>
+                   
                 </tr>
             {% endfor %}
             </tbody>

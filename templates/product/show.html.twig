@@ -17,7 +17,7 @@
             </tr>
             <tr>
                 <th>Content</th>
-                <td>{{ product.content }}</td>
+                <td>{{ product.content|raw  }}</td>
             </tr>
             <tr>
                 <th>Price</th>
@@ -39,9 +39,10 @@
         </tbody>
     </table>
 
+   
+
+    <a href="{{ path('product_edit', {'id': product.id}) }}" class="btn btn-warning">edit</a>
+
+    {{ include('product/_delete_form.html.twig') }} 
     <a href="{{ path('product_index') }}">back to list</a>
-
-    <a href="{{ path('product_edit', {'id': product.id}) }}">edit</a>
-
-    {{ include('product/_delete_form.html.twig') }}
 {% endblock %}

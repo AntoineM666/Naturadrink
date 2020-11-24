@@ -38,7 +38,11 @@ security:
     access_control:
          - { path: ^/admin, roles: ROLE_ADMIN }
          - { path: ^/profil, roles: ROLE_USER }
-
+         - { path: ^/efconnect, role: ROLE_ADMIN }
+         - { path: ^/elfinder, role: ROLE_ADMIN }
+         
     role_hierarchy:
         ROLE_PRO: ROLE_USER
         ROLE_ADMIN: ROLE_PRO
+
+        

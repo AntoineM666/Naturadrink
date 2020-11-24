@@ -46,9 +46,41 @@ class GeneralController extends AbstractController
 
 
 
+  /**
+     * @Route("/the", name="the", methods={"GET"})
+     */
+    public function the(ProductRepository $productRepository): Response
+    {
+        return $this->render('general/the.html.twig', [
+            'products' => $productRepository->findAll(),
+        ]);
 
+        
+    }
 
+ /**
+     * @Route("/cafe", name="cafe", methods={"GET"})
+     */
+    public function cafe(ProductRepository $productRepository): Response
+    {
+        return $this->render('general/cafe.html.twig', [
+            'products' => $productRepository->findAll(),
+        ]);
 
+        
+    }
+
+     /**
+     * @Route("/boissonalternative", name="drinkalt", methods={"GET"})
+     */
+    public function boissonalt(ProductRepository $productRepository): Response
+    {
+        return $this->render('general/drinkalt.html.twig', [
+            'products' => $productRepository->findAll(),
+        ]);
+
+        
+    }
 
 
 
