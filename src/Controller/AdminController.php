@@ -4,11 +4,13 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\EditUserType;
+use App\Form\SearchFormType;
 use App\Repository\UserRepository;
 use App\Repository\ProductRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -56,12 +58,13 @@ class AdminController extends AbstractController
             $entityManager->flush();
 
             $this->addFlash('message','utilisateur modifié avec succés');
-            return $this->redirectToRoute('admin');
+            return $this->redirectToRoute('utilisateur');
 
         }
         return $this->render('admin/edituser.html.twig',
         [
-            'userForm' => $form->createView()
+            'userForm' => $form->createView(),
+            'users'=> $user
         ]);
     }
 
@@ -95,5 +98,44 @@ class AdminController extends AbstractController
 
         return $this->redirectToRoute('utilisateur');
     }
+
+
+
+    /**
+     * @IsGranted("ROLE_ADMIN")
+     * @Route("/recherche", name="search")
+     */
+    public function recherche(Request $request, UserRepository $repo ) {
+      
+        $searchForm = $this->createForm(SearchFormType::class);
+        $searchForm->handleRequest($request);
+        
+        $donnees = $repo;
+ 
+        if ($searchForm->isSubmitted() && $searchForm->isValid()) {
+ 
+            $email = $searchForm->getData()->getEmail();
+
+            $donnees = $repo->search($email);
+
+
+            if ($donnees == null) {
+                $this->addFlash('erreur', 'Aucun article contenant ce mot clé dans le titre n\'a été trouvé, essayez en un autre.');
+           
+            }
+
+    }
+
+     
+
+        return $this->render('admin/search.html.twig',[
+            'user'=>$donnees ,
+            'searchForm' => $searchForm->createView()
+        ]);
+    }
+
+
+
+
 
 }

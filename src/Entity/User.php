@@ -36,6 +36,46 @@ class User implements UserInterface
      */
     private $password;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $namesociety;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nom;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $prenom;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $adress;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $codepostale;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $ville;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $siren;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $numerotel;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -112,5 +152,101 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getNamesociety(): ?string
+    {
+        return $this->namesociety;
+    }
+
+    public function setNamesociety(string $namesociety): self
+    {
+        $this->namesociety = $namesociety;
+
+        return $this;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(string $nom): self
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getPrenom(): ?string
+    {
+        return $this->prenom;
+    }
+
+    public function setPrenom(string $prenom): self
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    public function getAdress(): ?string
+    {
+        return $this->adress;
+    }
+
+    public function setAdress(string $adress): self
+    {
+        $this->adress = $adress;
+
+        return $this;
+    }
+
+    public function getCodepostale(): ?int
+    {
+        return $this->codepostale;
+    }
+
+    public function setCodepostale(int $codepostale): self
+    {
+        $this->codepostale = $codepostale;
+
+        return $this;
+    }
+
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+
+    public function setVille(string $ville): self
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getSiren(): ?int
+    {
+        return $this->siren;
+    }
+
+    public function setSiren(int $siren): self
+    {
+        $this->siren = $siren;
+
+        return $this;
+    }
+
+    public function getNumerotel(): ?int
+    {
+        return $this->numerotel;
+    }
+
+    public function setNumerotel(int $numerotel): self
+    {
+        $this->numerotel = $numerotel;
+
+        return $this;
     }
 }

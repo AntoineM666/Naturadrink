@@ -3,13 +3,18 @@
 {% block body %}
 <div class="container">
     <h1> Liste des utilisateurs</h1>
+
+     {% for message in app.session.flashbag.get('message') %}
+     <div class="alert alert-success" role="alert">
+        {{ message }}
+    </div>
+      {% endfor %}
         <table class="table">
             <thead>
         
                 <th scope="col">id</th>
                 <th scope="col">email</th>
                 <th scope="col">roles</th>
-                <th scope="col">verif</th>
                 <th scope="col">action</th>
             
             </thead>
@@ -28,8 +33,10 @@
                             {% endif %}
                         {% endfor %}
                     </td>
-                    <td></td>
-                    <td><a href="{{path('edit_user', {'id': users.id}) }}" class="btn btn-warning">modifier</a> {{ include('admin/deleteuser.html.twig') }}
+                    
+                    <td>
+                    <a href="{{path('edit_user', {'id': users.id}) }}" class="btn btn-warning">modifier</a>
+                     {{ include('admin/deleteuser.html.twig') }}
                     </td>
                    
                 </tr>

@@ -76,6 +76,8 @@ class ProductController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('message','produit modifié avec succés');
+
             return $this->redirectToRoute('product_index');
         }
 

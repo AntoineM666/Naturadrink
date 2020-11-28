@@ -8,22 +8,19 @@
 
    
 <div class="row">
-    <img  src="{{asset('images/produits/')}}{{product.filename}}" class="m-3" style="width:500px;height:500px;" >
-   
-    
-    <div class="container"style="width:800px;">
- <div class="card">
-                      
-                        <div class="card-body" >
-                            <h3 class="card-title" style="text-align:center;">{{ product.title }}</h3>
-                            <p class="card-text ">{{ product.content|raw }}</p>
-                            <p class="card-text "style="text-align: center;"><strong>Prix:</strong> {{ product.price }}€</p>
-                            <div class="text-center">
-                       
-                            </div>
-                        </div>
-                    </div>
-</div>
-</div>
 
+    <img  src="{{asset('images/produits/')}}{{product.filename}}" class="m-3"  >
+   
+<div class="container"> 
+  
+        <div class="card">
+                                
+                                    
+            {{ product.content|raw }}
+                                    
+                                
+                                    
+        </div>
+        </div>
+ </div>
 {% endblock %}

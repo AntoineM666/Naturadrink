@@ -68,6 +68,11 @@ class Product
      */
     private $updated_at;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $prixpro;
+
 
 
 
@@ -210,6 +215,18 @@ class Product
     public function setFilename($filename)
     {
         $this->filename = $filename;
+
+        return $this;
+    }
+
+    public function getPrixpro(): ?int
+    {
+        return $this->prixpro;
+    }
+
+    public function setPrixpro(int $prixpro): self
+    {
+        $this->prixpro = $prixpro;
 
         return $this;
     }

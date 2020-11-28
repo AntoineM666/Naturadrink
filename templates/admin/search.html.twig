@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product index{% endblock %}
+{% block body %}
+<div class="form-group">
+
+    <div class="container">
+
+        {% form_theme searchForm 'bootstrap_4_layout.html.twig' %}
+        {{ form_start(searchForm) }}
+        {{ form_row(searchForm.email, {'label': " ", 'attr': {'placeholder': 'mot clé...'}}) }}
+        <button class="btn btn-primary">rechercher</button>
+        {{ form_end(searchForm) }}
+
+
+        <table class="table">
+            <thead>
+
+                <th>email</th>
+
+                <th>action</th>
+
+            </thead>
+            <tbody>
+                {% for users in user %}
+
+
+
+                <tr>
+                    <td>{{ users.email }}</td>
+
+
+                    <td>
+                        <a href="{{path('edit_user', {'id': users.id}) }}" class="btn btn-warning">modifier</a>
+                        {{ include('admin/deleteuser.html.twig') }}
+                    </td>
+
+                </tr>
+
+
+                {% endfor %}
+            </tbody>
+
+        </table>
+
+    </div>
+
+    {% endblock %}

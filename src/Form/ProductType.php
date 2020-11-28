@@ -22,6 +22,7 @@ class ProductType extends AbstractType
                 'required'=> false
             ])
             ->add('category')
+            ->add('prixpro')
         ;
     }
 

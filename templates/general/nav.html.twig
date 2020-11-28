@@ -1,0 +1,42 @@
+
+
+
+<a class="navbar-brand" href="{{ path('general') }}" style="position:absolute;z-index:2; margin-left:4%; ;"> <img src="{{asset('logo/logo.png')}}" alt=""></a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light"
+    style="position:absolute;z-index:1;width:100%; margin-top:50px; ;padding-top: 0.1px;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" style="margin-left:25%; ">
+            <li class="nav-item active">
+                <a class="nav-link mr-5" href="{{path('cafe')}}"><h3>Cafe</h3><span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link mr-5" href="{{path('the')}}"><h4>The</h4> <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link " href="{{path('drinkalt')}}"><h4>Boisson alternative</h4> <span
+                        class="sr-only">(current)</span></a>
+            </li>
+
+
+
+        </ul>
+
+
+        <!-- se connecter et se deconnecter -->
+        {% if app.user %}
+
+        <a href="{{ path('app_logout') }}">se deconnecter</a>
+        {% else %}
+        <a href="{{ path('app_login') }}">se connecter</a>
+        {% endif %}
+
+
+
+    </div>
+</nav>
+

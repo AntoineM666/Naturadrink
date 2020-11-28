@@ -4,7 +4,56 @@
 <div class="container">
     <h1> modifier les utilisateurs</h1>
 {{ form(userForm) }}
+
+
+
+
+
+    <div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+          
+                <th>nom</th>
+                <th>prenom</th>
+                <th>nom de la societe</th>
+                <th>numero</th>
+                <th>siren</th>
+                <th>adresse</th>
+                <th>ville</th>
+            </tr>
+        </thead>
+        <tbody>
+      
+            <tr>
+             
+                <td>  {{ users.nom }}</td>
+                <td>{{ users.prenom }}</td>
+                <td>  {{ users.namesociety }}</td>
+                <td> {{ users.numerotel }}</td>
+                <td>  {{ users.siren }}</td>
+                <td>{{ users.adress }}</td>
+                <td> {{ users.ville }}</td>
+                        
+            </tr>
+      
+        </tbody>
+    </table>  
+</div>
+
+
+
+
+
+
   
+
+ 
+
+  
+ 
+ 
+
  
 
 {% endblock %}
