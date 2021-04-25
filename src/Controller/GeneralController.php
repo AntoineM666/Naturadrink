@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use Stripe\Stripe;
 use App\Entity\Product;
+use App\service\cart\CartService;
 use App\Repository\ProductRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -136,5 +137,44 @@ class GeneralController extends AbstractController
     }
 
 
+     /**
+     * @Route ("/panier/add/{id}", name="cart_add")
+     */
+    public function add($id,CartService $cartservice)
+    {
+       
+        $cartservice->add($id);
+       
+
+        return $this->redirectToRoute("panier");
+ 
+    }
+
+
+    /**
+     * @Route ("/panier", name="panier")
+     */
+    public function panier(CartService $cartservice)
+    {
+        
+      
+
+        return $this->render('general/panier.html.twig',[
+            'items'=> $cartservice->getFullcart(),
+            'total'=> $cartservice->getTotal()
+        ]);
+        
+ 
+    }
+
+    /**
+     * @Route("/panier/remove/{id}", name="cart_remove")
+     */
+    public function remove($id,CartService $cartservice){
+
+        $cartservice->remove($id);
+       
+        return $this->redirectToRoute("panier");
+    }
 
 }
